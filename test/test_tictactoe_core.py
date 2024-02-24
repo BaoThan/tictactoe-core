@@ -1,7 +1,7 @@
+from src.tictactoe_core import best_next_move
 from src.tictactoe_core import check_winner
 from src.tictactoe_core import is_board_full
 from src.tictactoe_core import is_board_valid
-from src.tictactoe_core import best_next_move
 from src.tictactoe_core import Player
 
 
@@ -78,6 +78,7 @@ def test_is_board_full() -> None:
     B5 = [["O", "O", "X"], ["X", "X", "O"], ["O", "X", "O"]]
     assert is_board_full(B5)
 
+
 def test_best_next_move() -> None:
     # Test when the board is empty
     board1 = [["", "", ""], ["", "", ""], ["", "", ""]]
@@ -97,7 +98,15 @@ def test_best_next_move() -> None:
 
     # Test when the board has multiple winning moves for different players
     board5 = [["X", "", ""], ["", "O", ""], ["", "", ""]]
-    assert best_next_move(board5, Player.O) in [[0, 1], [0, 2], [1, 0], [1, 2], [2, 0], [2, 1], [2, 2]]
+    assert best_next_move(board5, Player.O) in [
+        [0, 1],
+        [0, 2],
+        [1, 0],
+        [1, 2],
+        [2, 0],
+        [2, 1],
+        [2, 2],
+    ]
 
     # Test when the board is full
     board6 = [["X", "O", "X"], ["X", "O", "O"], ["O", "X", "O"]]

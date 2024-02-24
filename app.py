@@ -6,7 +6,7 @@ from src.routes import *
 
 def main() -> None:
     app = Flask(__name__)
-    cors = CORS(app)
+    CORS(app)
     app.config["CORS_HEADERS"] = "Content-Type"
     app.register_blueprint(routes)
     app.run()

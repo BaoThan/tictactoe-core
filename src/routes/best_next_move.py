@@ -4,8 +4,9 @@ from flask import request
 from flask_cors import cross_origin
 
 from . import routes
-from src.routes.helper.responses import BestNextMoveResult, Player
+from src.routes.helper.responses import BestNextMoveResult
 from src.routes.helper.responses import FailureResult
+from src.routes.helper.responses import Player
 from src.tictactoe_core import best_next_move
 from src.tictactoe_core import is_board_valid
 
