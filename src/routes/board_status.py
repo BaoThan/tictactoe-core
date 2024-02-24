@@ -1,6 +1,7 @@
 import json
 
 from flask import request
+from flask_cors import cross_origin
 
 from . import routes
 from src.routes.helper.responses import BoardStatusResult
@@ -11,6 +12,7 @@ from src.tictactoe_core import is_board_valid
 
 
 @routes.route("/board_status", methods=["POST"])
+@cross_origin()
 def board_status():
     """
     board_status REST API, support POST requests only.

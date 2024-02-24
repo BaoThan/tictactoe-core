@@ -1,15 +1,17 @@
 import json
 
 from flask import request
+from flask_cors import cross_origin
 
 from . import routes
-from src.routes.helper.responses import BestNextMoveResult
+from src.routes.helper.responses import BestNextMoveResult, Player
 from src.routes.helper.responses import FailureResult
 from src.tictactoe_core import best_next_move
 from src.tictactoe_core import is_board_valid
 
 
 @routes.route("/best_next_move", methods=["POST"])
+@cross_origin()
 def next_move():
     """
     next_move REST API, support POST requests only.
@@ -27,6 +29,7 @@ def next_move():
     for_player = request.form["player"]
     if for_player.upper() not in ["X", "O"]:
         return FailureResult("Invalid input").to_flask_response()
+    for_player = Player(for_player.upper())
 
     next_move = best_next_move(board, for_player)
     return BestNextMoveResult(next_move).to_flask_response()
