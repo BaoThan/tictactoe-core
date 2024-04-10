@@ -1,4 +1,42 @@
-## Development Setup Instruction
+# Tic Tac Toe
+A REST API for Tic Tac Toe bot, implemented using the Minimax algorithm.
+
+---
+
+<p align="center">
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXZ6OXZodWo0NmV1ZGxzZWp5anFnMWJzemM3YXhpbnBwd3pkeWoxbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT3i1j9j4yMLXPDj5C/giphy.gif" />
+</p>
+
+---
+
+#### Base URL: https://e0cb-76-21-119-158.ngrok-free.app
+
+---
+
+### Find best next move
+POST `/best_next_move`
+
+##### Body Form-Data Arguments:
+- `player`: String (either "X" or "O") representing the player to find the best next move for.
+- `board`: The string representation of the game board.
+
+##### Example:
+Example calling the API in Python:
+```python
+import requests
+
+url = "https://e0cb-76-21-119-158.ngrok-free.app/best_next_move"
+payload = {
+    'player': 'X',
+    'board': '[["X", "O", ""], ["", "O", ""], ["", "", ""]]'
+}
+response = requests.request("POST", url, headers={}, data=payload)
+print(response.json()) # {'data': {'next_move': [2, 1]}, 'success': True}
+```
+
+---
+
+## Development Setup
 
 A complete guide to setup your development environment :D
 
