@@ -1,4 +1,8 @@
 # Tic Tac Toe
+
+![](https://github.com/BaoThan/tictactoe-core/actions/workflows/test-pipeline.yml/badge.svg?branch=main)
+![](https://github.com/BaoThan/tictactoe-core/actions/workflows/stylelint-pipeline.yml/badge.svg?branch=main)
+
 A REST API for Tic Tac Toe bot, implemented using the Minimax algorithm.
 
 ---
